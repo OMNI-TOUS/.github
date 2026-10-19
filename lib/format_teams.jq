@@ -1,5 +1,7 @@
 include "report_rows";
 
+def wip: {type: "TextBlock", text: "WIP"};
+
 def heading($text): {type: "TextBlock", text: $text, weight: "Bolder"};
 
 def facts($pairs):
@@ -25,10 +27,9 @@ def with_previous($has_previous):
           {type: "TextBlock", text: "Período: \(.from) a \(.to)", isSubtle: true, spacing: "None"},
           facts(summary_rows($m; .previous // {}) | map(with_previous($has_previous))),
           heading("Lead time por cliente (mediana / p90, dias)"),
-          facts($m.lead_time_days.by_cliente | sorted_entries
-            | map([.key, "\(.value.p50) / \(.value.p90) (\(.value.n) issues)"])),
+          wip,
           heading("SLA estourado por prioridade"),
-          facts($m.sla_breaches | sorted_entries | map([.key, (.value | tostring)]))
+          wip
         ],
         actions: [{type: "Action.OpenUrl", title: "Abrir board", url: .board_url}]
       }

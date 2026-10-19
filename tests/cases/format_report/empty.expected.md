@@ -21,8 +21,8 @@ Nenhuma issue fechada no período.
 
 ### Lead time por cliente
 
-Nenhuma issue fechada no período.
+WIP
 
 ### SLA estourado por prioridade
 
-Nenhum.
+WIP

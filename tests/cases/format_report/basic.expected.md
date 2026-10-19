@@ -24,14 +24,8 @@ Período: 2026-10-12 a 2026-10-19
 
 ### Lead time por cliente
 
-| Cliente | Issues | Mediana | p90 |
-|---|---|---|---|
-| (sem cliente) | 1 | 10 | 10 |
-| PGE | 2 | 2 | 30 |
+WIP
 
 ### SLA estourado por prioridade
 
-| Prioridade | Issues |
-|---|---|
-| normal | 1 |
-| urgente | 1 |
+WIP
