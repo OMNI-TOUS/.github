@@ -5,9 +5,10 @@
   },
   "target_content_ids": ["I_already"],
   "source_items": [
-    {"content_id": "I_a", "type": "ISSUE", "repo": "trust-center", "status": "In progress", "priority": "P0", "card_jira": [null, "", "TC-12", "TC-13"]},
-    {"content_id": "I_already", "type": "ISSUE", "repo": "trust-center", "status": "Done", "priority": "P1", "card_jira": []},
-    {"content_id": null, "type": "DRAFT_ISSUE", "repo": null, "status": "Backlog", "priority": null, "card_jira": []},
-    {"content_id": "PR_b", "type": "PULL_REQUEST", "repo": "outro", "status": null, "priority": "P9", "card_jira": [null]}
+    {"content_id": "I_a", "type": "ISSUE", "state": "OPEN", "repo": "trust-center", "status": "In progress", "priority": "P0", "card_jira": [null, "", "TC-12", "TC-13"]},
+    {"content_id": "I_already", "type": "ISSUE", "state": "OPEN", "repo": "trust-center", "status": "Done", "priority": "P1", "card_jira": []},
+    {"content_id": "I_closed", "type": "ISSUE", "state": "CLOSED", "repo": "trust-center", "status": "Done", "priority": "P1", "card_jira": ["TC-1"]},
+    {"content_id": null, "type": "DRAFT_ISSUE", "state": null, "repo": null, "status": "Backlog", "priority": null, "card_jira": []},
+    {"content_id": "PR_b", "type": "PULL_REQUEST", "state": "OPEN", "repo": "outro", "status": null, "priority": "P9", "card_jira": [null]}
   ]
 }

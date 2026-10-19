@@ -19,8 +19,8 @@ project_items() {
           nodes {
             type
             content {
-              ... on Issue { id repository { name } }
-              ... on PullRequest { id repository { name } }
+              ... on Issue { id state repository { name } }
+              ... on PullRequest { id state repository { name } }
             }
             status: fieldValueByName(name: \"Status\") { ... on ProjectV2ItemFieldSingleSelectValue { name } }
             priority: fieldValueByName(name: \"Priority\") { ... on ProjectV2ItemFieldSingleSelectValue { name } }
@@ -37,6 +37,7 @@ flatten_items() {
   jq 'map({
     content_id: .content.id,
     type,
+    state: .content.state,
     repo: .content.repository.name,
     status: .status.name,
     priority: .priority.name,
@@ -70,7 +71,7 @@ copy_item() {
 load_project_fields "$TARGET_PROJECT" > "$WORK/target.json"
 plan
 
-jq -r '"to copy: \(.copy | length), already on target: \(.already_on_target), drafts skipped: \(.skipped_drafts)"' "$WORK/plan.json"
+jq -r '"to copy: \(.copy | length), already on target: \(.already_on_target), closed skipped: \(.skipped_closed), drafts skipped: \(.skipped_drafts)"' "$WORK/plan.json"
 
 if is_dry_run; then
   echo "dry run: no changes made"
