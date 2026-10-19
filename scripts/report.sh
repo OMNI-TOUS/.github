@@ -63,7 +63,10 @@ compute_metrics() {
 }
 
 previous_metrics() {
-  [ "$KIND" = "monthly" ] && [ -n "$REPORT_REPO" ] || { echo null; return; }
+  if [ "$KIND" != "monthly" ] || [ -z "$REPORT_REPO" ]; then
+    echo null
+    return
+  fi
   gh issue list -R "$ORG/$REPORT_REPO" --label "$MONTHLY_LABEL" --state all --limit 1 --json body --jq '.[0].body // ""' \
     | sed -n "s/^$METRICS_MARKER \(.*\) -->$/\1/p" | grep . || echo null
 }
