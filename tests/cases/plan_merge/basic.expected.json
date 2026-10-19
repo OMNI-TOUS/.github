@@ -1,0 +1,8 @@
+{
+  "copy": [
+    {"content_id": "I_a", "status": "In progress", "priority": "urgente", "card_jira": "TC-12", "produto": "Trust Center"},
+    {"content_id": "PR_b", "status": null, "priority": null, "card_jira": null, "produto": null}
+  ],
+  "already_on_target": 1,
+  "skipped_drafts": 1
+}

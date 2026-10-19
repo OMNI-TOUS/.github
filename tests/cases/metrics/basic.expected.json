@@ -1,0 +1,23 @@
+{
+  "issues_closed": 3,
+  "prs_merged": 3,
+  "lead_time_days": {
+    "all": {"n": 3, "p50": 10, "p90": 30},
+    "by_repo": {
+      "omni-a": {"n": 2, "p50": 2, "p90": 10},
+      "omni-b": {"n": 1, "p50": 30, "p90": 30}
+    },
+    "by_cliente": {
+      "PGE": {"n": 2, "p50": 2, "p90": 30},
+      "(sem cliente)": {"n": 1, "p50": 10, "p90": 10}
+    }
+  },
+  "open_issues": 3,
+  "open_over_30d": 2,
+  "open_over_90d": 1,
+  "stale": 1,
+  "done_but_open": 1,
+  "sla_breaches": {"urgente": 1, "normal": 1},
+  "prs_waiting_review": 1,
+  "linked_share_pct": 67
+}

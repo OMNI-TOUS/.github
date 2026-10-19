@@ -1,0 +1,7 @@
+{
+  "config": {"project": 1, "now": "2026-10-19T12:00:00Z", "stale_label": "parado", "review_wait_days": 2, "sla_days": {}},
+  "closed_issues": [],
+  "open_issues": [],
+  "merged_prs": [],
+  "open_prs": []
+}

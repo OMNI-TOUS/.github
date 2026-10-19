@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Guia do board
+    url: https://github.com/OMNI-TOUS/.github/blob/main/docs/guia-do-board.md
+    about: Como abrir, acompanhar e fechar cards.

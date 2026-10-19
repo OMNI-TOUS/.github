@@ -1,0 +1,8 @@
+[
+  {"name": "Status: Pendente Cliente", "color": "cfd3d7", "description": "Aguardando resposta do cliente"},
+  {"name": "Tipo: ETL", "color": "008672", "description": "Carga ou migração de dados"},
+  {"name": "Tipo: Relatório", "color": "008672", "description": "Relatório ou painel"},
+  {"name": "Testado sem sucesso", "color": "b60205", "description": "Testado, mas não se comportou como esperado"},
+  {"name": "sem-card", "color": "ededed", "description": "PR sem card (ex.: bump de versão, ajuste de CI)"},
+  {"name": "parado", "color": "fbca04", "description": "Sem atividade há mais de 60 dias"}
+]

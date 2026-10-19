@@ -1,0 +1,19 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: tests/run.sh
+      - run: find scripts tests -name '*.sh' ! -name lib.sh -exec shellcheck -x {} +
+      - uses: raven-actions/actionlint@v2

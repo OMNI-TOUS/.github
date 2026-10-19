@@ -1,0 +1,23 @@
+{
+  "title": "Resumo semanal",
+  "from": "2026-10-12",
+  "to": "2026-10-19",
+  "metrics": {
+    "issues_closed": 0,
+    "prs_merged": 0,
+    "lead_time_days": {
+      "all": null,
+      "by_repo": {},
+      "by_cliente": {}
+    },
+    "open_issues": 0,
+    "open_over_30d": 0,
+    "open_over_90d": 0,
+    "stale": 0,
+    "done_but_open": 0,
+    "sla_breaches": {},
+    "prs_waiting_review": 0,
+    "linked_share_pct": null
+  },
+  "previous": null
+}

@@ -1,0 +1,25 @@
+name: Funcionalidade
+description: Algo novo ou uma melhoria.
+type: Feature
+projects: ["OMNI-TOUS/1"]
+body:
+  - type: textarea
+    id: objetivo
+    attributes:
+      label: Objetivo
+      description: Que problema isso resolve e para quem?
+    validations:
+      required: true
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Critérios de aceite
+      placeholder: |
+        - [ ] ...
+    validations:
+      required: true
+  - type: input
+    id: cliente
+    attributes:
+      label: Cliente / órgão
+      description: Deixe em branco se não for de um cliente específico.

@@ -1,0 +1,42 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "body": [
+          {"type": "TextBlock", "text": "Resumo semanal", "weight": "Bolder", "size": "Medium"},
+          {"type": "TextBlock", "text": "Período: 2026-10-12 a 2026-10-19", "isSubtle": true, "spacing": "None"},
+          {"type": "FactSet", "facts": [
+            {"title": "Issues fechadas", "value": "3 (anterior: 2)"},
+            {"title": "PRs mergeados", "value": "3 (anterior: 5)"},
+            {"title": "PRs com card vinculado", "value": "67% (anterior: 40%)"},
+            {"title": "Lead time (mediana / p90, dias)", "value": "10 / 30 (anterior: 12 / 20)"},
+            {"title": "Issues abertas", "value": "3 (anterior: 4)"},
+            {"title": "Abertas há mais de 30 dias", "value": "2 (anterior: 2)"},
+            {"title": "Abertas há mais de 90 dias", "value": "1 (anterior: 1)"},
+            {"title": "Paradas (rótulo parado)", "value": "1 (anterior: 0)"},
+            {"title": "Done no board, mas abertas", "value": "1 (anterior: 3)"},
+            {"title": "PRs aguardando revisão", "value": "1 (anterior: 0)"}
+          ]},
+          {"type": "TextBlock", "text": "Lead time por cliente (mediana / p90, dias)", "weight": "Bolder"},
+          {"type": "FactSet", "facts": [
+            {"title": "(sem cliente)", "value": "10 / 10 (1 issues)"},
+            {"title": "PGE", "value": "2 / 30 (2 issues)"}
+          ]},
+          {"type": "TextBlock", "text": "SLA estourado por prioridade", "weight": "Bolder"},
+          {"type": "FactSet", "facts": [
+            {"title": "normal", "value": "1"},
+            {"title": "urgente", "value": "1"}
+          ]}
+        ],
+        "actions": [
+          {"type": "Action.OpenUrl", "title": "Abrir board", "url": "https://github.com/orgs/OMNI-TOUS/projects/1"}
+        ]
+      }
+    }
+  ]
+}

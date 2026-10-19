@@ -1,0 +1,29 @@
+{
+  "issues": [
+    {
+      "id": "I_1", "repo": "omni-esocial", "number": 7,
+      "createdAt": "2026-07-01T10:00:00Z", "updatedAt": "2026-07-02T10:00:00Z", "closedAt": null,
+      "labels": ["parado"],
+      "project_items": [
+        {"project": 1, "item_id": "PVTI_1", "status": "Done", "priority": "urgente", "cliente": null},
+        {"project": 4, "item_id": "PVTI_2", "status": null, "priority": null, "cliente": "PGE"}
+      ]
+    }
+  ],
+  "prs": [
+    {
+      "id": "PR_1", "repo": "omni-sst", "number": 12, "sha": "abc123",
+      "createdAt": "2026-10-10T10:00:00Z", "mergedAt": null,
+      "labels": [], "linked": true, "reviews": 0,
+      "card_link_state": "FAILURE",
+      "project_items": []
+    },
+    {
+      "id": "PR_2", "repo": "omni-core", "number": 13, "sha": "def456",
+      "createdAt": "2026-10-11T10:00:00Z", "mergedAt": "2026-10-12T10:00:00Z",
+      "labels": ["sem-card"], "linked": false, "reviews": 1,
+      "card_link_state": null,
+      "project_items": [{"project": 1, "item_id": "PVTI_9", "status": null, "priority": null, "cliente": null}]
+    }
+  ]
+}

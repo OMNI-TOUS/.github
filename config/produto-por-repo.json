@@ -1,0 +1,22 @@
+{
+  "omni-esocial": "eSocial",
+  "omni-esocial-frontend": "eSocial",
+  "omni-java-esocial": "eSocial",
+  "omni-esocial-mensageria": "Mensageria",
+  "omni-reinf-mensageria": "Mensageria",
+  "omni-reinf": "Reinf",
+  "omni-reinf-frontend": "Reinf",
+  "omni-java-efd-reinf": "Reinf",
+  "omni-sst": "SST",
+  "omni-sst-frontend": "SST",
+  "omni-core": "Core",
+  "omni-core-frontend": "Core",
+  "omni-java-certificado": "Core",
+  "omni-upload-xml": "Core",
+  "omni-sincronismo": "Sincronismo",
+  "etl-database-sp": "ETL",
+  "etl-pge": "ETL",
+  "etl-omni-libs": "ETL",
+  "trust-center": "Trust Center",
+  "omni-contractors": "Interno"
+}

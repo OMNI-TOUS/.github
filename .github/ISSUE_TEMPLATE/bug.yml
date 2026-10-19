@@ -1,0 +1,39 @@
+name: Bug
+description: Algo não funciona como deveria.
+type: Bug
+projects: ["OMNI-TOUS/1"]
+body:
+  - type: textarea
+    id: comportamento
+    attributes:
+      label: O que acontece
+      description: Descreva o erro. Inclua mensagens, prints ou logs.
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: O que deveria acontecer
+    validations:
+      required: true
+  - type: textarea
+    id: passos
+    attributes:
+      label: Como reproduzir
+      placeholder: |
+        1. Acesse ...
+        2. Clique em ...
+    validations:
+      required: true
+  - type: dropdown
+    id: ambiente
+    attributes:
+      label: Ambiente
+      options: [Produção, Homologação, Desenvolvimento]
+    validations:
+      required: true
+  - type: input
+    id: cliente
+    attributes:
+      label: Cliente / órgão
+      description: Deixe em branco se não for de um cliente específico.

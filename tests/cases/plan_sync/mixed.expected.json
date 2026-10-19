@@ -1,0 +1,10 @@
+[
+  {"type": "add_item", "content_id": "I_new", "produto": "SST"},
+  {"type": "add_item", "content_id": "I_other_board", "produto": null},
+  {"type": "add_label", "repo": "omni-esocial", "number": 4, "label": "parado"},
+  {"type": "set_status", "repo": "omni-sst", "sha": "s10", "state": "failure"},
+  {"type": "add_item", "content_id": "PR_unlinked_new", "produto": "SST"},
+  {"type": "remove_item", "item_id": "PVTI_pr11"},
+  {"type": "set_status", "repo": "omni-core", "sha": "s12", "state": "success"},
+  {"type": "set_status", "repo": "omni-core", "sha": "s14", "state": "success"}
+]

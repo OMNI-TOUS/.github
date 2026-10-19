@@ -1,0 +1,28 @@
+name: Demanda de cliente
+description: Pedido vindo de um cliente ou órgão.
+type: Task
+projects: ["OMNI-TOUS/1"]
+body:
+  - type: input
+    id: cliente
+    attributes:
+      label: Cliente / órgão
+    validations:
+      required: true
+  - type: textarea
+    id: pedido
+    attributes:
+      label: Pedido
+      description: O que o cliente pediu, com as palavras dele quando possível.
+    validations:
+      required: true
+  - type: input
+    id: prazo
+    attributes:
+      label: Prazo combinado
+      placeholder: AAAA-MM-DD
+  - type: input
+    id: jira
+    attributes:
+      label: Card Jira
+      placeholder: Ex.: TC-123

@@ -1,0 +1,24 @@
+{
+  "config": {
+    "project": 1,
+    "now": "2026-10-19T12:00:00Z",
+    "stale_days": 60,
+    "stale_label": "parado",
+    "skip_label": "sem-card",
+    "produto_by_repo": {"omni-sst": "SST", "omni-esocial": "eSocial"}
+  },
+  "issues": [
+    {"id": "I_new", "repo": "omni-sst", "number": 1, "updatedAt": "2026-10-18T00:00:00Z", "labels": [], "project_items": []},
+    {"id": "I_other_board", "repo": "unmapped-repo", "number": 2, "updatedAt": "2026-10-18T00:00:00Z", "labels": [], "project_items": [{"project": 4, "item_id": "X"}]},
+    {"id": "I_fine", "repo": "omni-esocial", "number": 3, "updatedAt": "2026-10-18T00:00:00Z", "labels": [], "project_items": [{"project": 1, "item_id": "A"}]},
+    {"id": "I_stale", "repo": "omni-esocial", "number": 4, "updatedAt": "2026-08-01T00:00:00Z", "labels": ["bug"], "project_items": [{"project": 1, "item_id": "B"}]},
+    {"id": "I_stale_labeled", "repo": "omni-esocial", "number": 5, "updatedAt": "2026-08-01T00:00:00Z", "labels": ["parado"], "project_items": [{"project": 1, "item_id": "C"}]}
+  ],
+  "prs": [
+    {"id": "PR_unlinked_new", "repo": "omni-sst", "number": 10, "sha": "s10", "labels": [], "linked": false, "card_link_state": null, "project_items": []},
+    {"id": "PR_linked_on_board", "repo": "omni-core", "number": 11, "sha": "s11", "labels": [], "linked": true, "card_link_state": "SUCCESS", "project_items": [{"project": 1, "item_id": "PVTI_pr11"}]},
+    {"id": "PR_skip_label", "repo": "omni-core", "number": 12, "sha": "s12", "labels": ["sem-card"], "linked": false, "card_link_state": "FAILURE", "project_items": []},
+    {"id": "PR_unlinked_known", "repo": "omni-core", "number": 13, "sha": "s13", "labels": [], "linked": false, "card_link_state": "FAILURE", "project_items": [{"project": 1, "item_id": "PVTI_pr13"}]},
+    {"id": "PR_linked_new", "repo": "omni-core", "number": 14, "sha": "s14", "labels": [], "linked": true, "card_link_state": "FAILURE", "project_items": []}
+  ]
+}

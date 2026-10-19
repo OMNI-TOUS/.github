@@ -1,0 +1,37 @@
+## Resumo semanal
+
+Período: 2026-10-12 a 2026-10-19
+
+| Indicador | Atual | Anterior |
+|---|---|---|
+| Issues fechadas | 3 | 2 |
+| PRs mergeados | 3 | 5 |
+| PRs com card vinculado | 67% | 40% |
+| Lead time (mediana / p90, dias) | 10 / 30 | 12 / 20 |
+| Issues abertas | 3 | 4 |
+| Abertas há mais de 30 dias | 2 | 2 |
+| Abertas há mais de 90 dias | 1 | 1 |
+| Paradas (rótulo parado) | 1 | 0 |
+| Done no board, mas abertas | 1 | 3 |
+| PRs aguardando revisão | 1 | 0 |
+
+### Lead time por repositório
+
+| Repositório | Issues | Mediana | p90 |
+|---|---|---|---|
+| omni-a | 2 | 2 | 10 |
+| omni-b | 1 | 30 | 30 |
+
+### Lead time por cliente
+
+| Cliente | Issues | Mediana | p90 |
+|---|---|---|---|
+| (sem cliente) | 1 | 10 | 10 |
+| PGE | 2 | 2 | 30 |
+
+### SLA estourado por prioridade
+
+| Prioridade | Issues |
+|---|---|
+| normal | 1 |
+| urgente | 1 |

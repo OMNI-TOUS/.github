@@ -1,0 +1,34 @@
+{
+  "config": {
+    "project": 1,
+    "now": "2026-10-19T12:00:00Z",
+    "stale_label": "parado",
+    "review_wait_days": 2,
+    "sla_days": {"urgente": 2, "normal": 15}
+  },
+  "closed_issues": [
+    {"repo": "omni-a", "createdAt": "2026-10-01T00:00:00Z", "closedAt": "2026-10-03T00:00:00Z", "labels": [],
+     "project_items": [{"project": 1, "status": "Done", "priority": null, "cliente": "PGE"}]},
+    {"repo": "omni-a", "createdAt": "2026-10-01T00:00:00Z", "closedAt": "2026-10-11T00:00:00Z", "labels": [],
+     "project_items": [{"project": 4, "status": "Done", "priority": null, "cliente": "SP"}]},
+    {"repo": "omni-b", "createdAt": "2026-09-19T00:00:00Z", "closedAt": "2026-10-19T00:00:00Z", "labels": [],
+     "project_items": [{"project": 1, "status": "Done", "priority": null, "cliente": "PGE"}]}
+  ],
+  "open_issues": [
+    {"repo": "omni-a", "createdAt": "2026-10-17T00:00:00Z", "labels": [],
+     "project_items": [{"project": 1, "status": "Done", "priority": "urgente", "cliente": null}]},
+    {"repo": "omni-a", "createdAt": "2026-09-01T00:00:00Z", "labels": [],
+     "project_items": [{"project": 1, "status": "In progress", "priority": "normal", "cliente": null}]},
+    {"repo": "omni-b", "createdAt": "2026-06-01T00:00:00Z", "labels": ["parado"], "project_items": []}
+  ],
+  "merged_prs": [
+    {"repo": "omni-a", "linked": true},
+    {"repo": "omni-a", "linked": false},
+    {"repo": "omni-b", "linked": true}
+  ],
+  "open_prs": [
+    {"repo": "omni-a", "createdAt": "2026-10-10T00:00:00Z", "reviews": 0},
+    {"repo": "omni-a", "createdAt": "2026-10-18T00:00:00Z", "reviews": 0},
+    {"repo": "omni-b", "createdAt": "2026-10-01T00:00:00Z", "reviews": 2}
+  ]
+}
