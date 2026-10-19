@@ -16,9 +16,23 @@ project_id() {
   jq -r .id "$WORK/project.json"
 }
 
+commit_statuses() {
+  gh api "repos/$ORG/$1/commits/$2/status" --jq '[.statuses[] | {context, state}]'
+}
+
+with_statuses() {
+  local pr repo sha
+  while read -r pr; do
+    repo="$(jq -r .repository.name <<<"$pr")"
+    sha="$(jq -r .headRefOid <<<"$pr")"
+    jq --argjson statuses "$(commit_statuses "$repo" "$sha")" '. + {statuses: $statuses}' <<<"$pr"
+  done < <(jq -c '.[]' "$1") | jq -s .
+}
+
 collect() {
   search_nodes "org:$ORG is:issue is:open archived:false" "$ISSUE_FIELDS" > "$WORK/issues.json"
-  search_nodes "org:$ORG is:pr is:open archived:false" "$PR_FIELDS" > "$WORK/prs.json"
+  search_nodes "org:$ORG is:pr is:open archived:false" "$PR_FIELDS" > "$WORK/prs_raw.json"
+  with_statuses "$WORK/prs_raw.json" > "$WORK/prs.json"
   jq -n --arg context "$CARD_LINK_CONTEXT" \
     --slurpfile issues "$WORK/issues.json" --slurpfile prs "$WORK/prs.json" \
     '{context: $context, issues: $issues[0], prs: $prs[0]}' > "$WORK/raw.json"

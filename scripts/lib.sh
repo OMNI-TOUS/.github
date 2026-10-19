@@ -36,7 +36,6 @@ PR_FIELDS="... on PullRequest {
   labels(first: 20) { nodes { name } }
   closingIssuesReferences { totalCount }
   reviews { totalCount }
-  commits(last: 1) { nodes { commit { status { contexts { context state } } } } }
   $PROJECT_ITEM_FIELDS
 }"
 

@@ -18,7 +18,7 @@ def issue:
   };
 
 def card_link_state($context):
-  first(.commits.nodes[-1].commit.status.contexts[]? | select(.context == $context) | .state) // null;
+  first(.statuses[]? | select(.context == $context) | .state | ascii_upcase) // null;
 
 def pr($context):
   {
