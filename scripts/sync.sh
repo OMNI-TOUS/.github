@@ -66,6 +66,10 @@ add_label() {
     -f "labels[]=$(jq -r .label <<<"$1")" > /dev/null
 }
 
+remove_label() {
+  gh api -X DELETE "repos/$ORG/$(jq -r .repo <<<"$1")/issues/$(jq -r .number <<<"$1")/labels/$(jq -r .label <<<"$1")" > /dev/null
+}
+
 set_status() {
   local state description="$STATUS_MISSING"
   state="$(jq -r .state <<<"$1")"

@@ -9,11 +9,17 @@ def project_items:
 
 def labels: [.labels.nodes[].name];
 
+def labeled_at: reduce (.timelineItems.nodes[] | select(.label)) as $event ({}; .[$event.label.name] = $event.createdAt);
+
+def linked_pr_updates: [.closedByPullRequestsReferences.nodes[].updatedAt];
+
 def issue:
   {
     id, number, createdAt, updatedAt, closedAt,
     repo: .repository.name,
     labels: labels,
+    labeled_at: labeled_at,
+    linked_pr_updates: linked_pr_updates,
     project_items: project_items
   };
 

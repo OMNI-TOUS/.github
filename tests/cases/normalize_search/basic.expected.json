@@ -4,6 +4,8 @@
       "id": "I_1", "repo": "omni-esocial", "number": 7,
       "createdAt": "2026-07-01T10:00:00Z", "updatedAt": "2026-07-02T10:00:00Z", "closedAt": null,
       "labels": ["parado"],
+      "labeled_at": {"parado": "2026-07-02T10:00:00Z", "bug": "2026-06-01T10:00:00Z"},
+      "linked_pr_updates": ["2026-07-05T10:00:00Z", "2026-06-20T10:00:00Z"],
       "project_items": [
         {"project": 1, "item_id": "PVTI_1", "status": "Done", "priority": "urgente", "cliente": null},
         {"project": 4, "item_id": "PVTI_2", "status": null, "priority": null, "cliente": "PGE"}

@@ -8,11 +8,16 @@
     "produto_by_repo": {"omni-sst": "SST", "omni-esocial": "eSocial"}
   },
   "issues": [
-    {"id": "I_new", "repo": "omni-sst", "number": 1, "updatedAt": "2026-10-18T00:00:00Z", "labels": [], "project_items": []},
-    {"id": "I_other_board", "repo": "unmapped-repo", "number": 2, "updatedAt": "2026-10-18T00:00:00Z", "labels": [], "project_items": [{"project": 4, "item_id": "X"}]},
-    {"id": "I_fine", "repo": "omni-esocial", "number": 3, "updatedAt": "2026-10-18T00:00:00Z", "labels": [], "project_items": [{"project": 1, "item_id": "A"}]},
-    {"id": "I_stale", "repo": "omni-esocial", "number": 4, "updatedAt": "2026-08-01T00:00:00Z", "labels": ["bug"], "project_items": [{"project": 1, "item_id": "B"}]},
-    {"id": "I_stale_labeled", "repo": "omni-esocial", "number": 5, "updatedAt": "2026-08-01T00:00:00Z", "labels": ["parado"], "project_items": [{"project": 1, "item_id": "C"}]}
+    {"id": "I_new", "repo": "omni-sst", "number": 1, "updatedAt": "2026-10-18T00:00:00Z", "labels": [], "labeled_at": {}, "linked_pr_updates": [], "project_items": []},
+    {"id": "I_other_board", "repo": "unmapped-repo", "number": 2, "updatedAt": "2026-10-18T00:00:00Z", "labels": [], "labeled_at": {}, "linked_pr_updates": [], "project_items": [{"project": 4, "item_id": "X"}]},
+    {"id": "I_fine", "repo": "omni-esocial", "number": 3, "updatedAt": "2026-10-18T00:00:00Z", "labels": [], "labeled_at": {}, "linked_pr_updates": [], "project_items": [{"project": 1, "item_id": "A"}]},
+    {"id": "I_stale", "repo": "omni-esocial", "number": 4, "updatedAt": "2026-08-01T00:00:00Z", "labels": ["bug"], "labeled_at": {"bug": "2026-07-01T00:00:00Z"}, "linked_pr_updates": [], "project_items": [{"project": 1, "item_id": "B"}]},
+    {"id": "I_stale_labeled", "repo": "omni-esocial", "number": 5, "updatedAt": "2026-08-01T00:00:01Z", "labels": ["parado"], "labeled_at": {"parado": "2026-08-01T00:00:00Z"}, "linked_pr_updates": [], "project_items": [{"project": 1, "item_id": "C"}]},
+    {"id": "I_stale_recent_pr", "repo": "omni-esocial", "number": 6, "updatedAt": "2026-07-01T00:00:00Z", "labels": [], "labeled_at": {}, "linked_pr_updates": ["2026-10-01T00:00:00Z"], "project_items": [{"project": 1, "item_id": "D"}]},
+    {"id": "I_stale_old_pr", "repo": "omni-esocial", "number": 7, "updatedAt": "2026-07-01T00:00:00Z", "labels": [], "labeled_at": {}, "linked_pr_updates": ["2026-07-15T00:00:00Z"], "project_items": [{"project": 1, "item_id": "E"}]},
+    {"id": "I_active_after_label", "repo": "omni-esocial", "number": 8, "updatedAt": "2026-10-10T00:00:00Z", "labels": ["parado"], "labeled_at": {"parado": "2026-08-01T00:00:00Z"}, "linked_pr_updates": [], "project_items": [{"project": 1, "item_id": "F"}]},
+    {"id": "I_pr_after_label", "repo": "omni-esocial", "number": 9, "updatedAt": "2026-08-01T00:00:01Z", "labels": ["parado"], "labeled_at": {"parado": "2026-08-01T00:00:00Z"}, "linked_pr_updates": ["2026-10-05T00:00:00Z"], "project_items": [{"project": 1, "item_id": "G"}]},
+    {"id": "I_labeled_unknown_time", "repo": "omni-esocial", "number": 10, "updatedAt": "2026-10-10T00:00:00Z", "labels": ["parado"], "labeled_at": {}, "linked_pr_updates": [], "project_items": [{"project": 1, "item_id": "H"}]}
   ],
   "prs": [
     {"id": "PR_unlinked_new", "repo": "omni-sst", "number": 10, "sha": "s10", "labels": [], "linked": false, "card_link_state": null, "project_items": []},
