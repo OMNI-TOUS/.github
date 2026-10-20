@@ -90,6 +90,17 @@
             "days": 18
           }
         ]
+      },
+      "sub_issues_done": {
+        "total": 1,
+        "items": [
+          {
+            "ref": "omni-d#9",
+            "url": "https://github.com/OMNI-TOUS/omni-d/issues/9",
+            "title": "Parent done",
+            "days": 20
+          }
+        ]
       }
     }
   },

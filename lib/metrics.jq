@@ -24,6 +24,7 @@ def stats_by(f): group_by(f) | map({key: (.[0] | f), value: (map(.days) | lead_s
   def board_field($name): board_item($config.project)[$name] // null;
   def status_age: days_between(board_field("status_since"); $config.now);
   def has_status($statuses): board_field("status") as $status | $statuses | index($status) != null;
+  def all_sub_issues_done: (.sub_issues.total // 0) > 0 and .sub_issues.completed == .sub_issues.total;
   def waiting_review: .reviews == 0 and age > $config.review_wait_days;
   [.closed_issues[] | {
     repo,
@@ -59,6 +60,9 @@ def stats_by(f): group_by(f) | map({key: (.[0] | f), value: (map(.days) | lead_s
           | action_item(age)] | action_list($config.action_list_size)),
       blocked: ([.open_issues[]
           | select(has_status([blocked_status]) and board_field("status_since") != null)
-          | action_item(status_age)] | action_list($config.action_list_size))
+          | action_item(status_age)] | action_list($config.action_list_size)),
+      sub_issues_done: ([.open_issues[]
+          | select(all_sub_issues_done)
+          | action_item(days_between(.sub_issues.last_closed_at; $config.now))] | action_list($config.action_list_size))
     }
   }

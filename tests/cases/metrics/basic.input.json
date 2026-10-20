@@ -32,7 +32,13 @@
     {"repo": "omni-c", "number": 7, "title": "Waiting client", "url": "u/c7", "assignees": 1, "createdAt": "2026-05-01T00:00:00Z", "labels": [],
      "project_items": [{"project": 1, "status": "Bloqueado", "status_since": "2026-10-01T00:00:00Z", "priority": null, "cliente": null}]},
     {"repo": "omni-c", "number": 8, "title": "Slow work", "url": "u/c8", "assignees": 1, "createdAt": "2026-05-01T00:00:00Z", "labels": [],
-     "project_items": [{"project": 1, "status": "In progress", "status_since": "2026-08-30T00:00:00Z", "priority": null, "cliente": null}]}
+     "project_items": [{"project": 1, "status": "In progress", "status_since": "2026-08-30T00:00:00Z", "priority": null, "cliente": null}]},
+    {"repo": "omni-d", "number": 9, "title": "Parent done", "url": "u/d9", "assignees": 1, "createdAt": "2026-05-01T00:00:00Z", "labels": [],
+     "sub_issues": {"total": 2, "completed": 2, "last_closed_at": "2026-09-29T00:00:00Z"},
+     "project_items": [{"project": 1, "status": "Ready", "status_since": "2026-09-01T00:00:00Z", "priority": "normal", "cliente": null}]},
+    {"repo": "omni-d", "number": 10, "title": "Parent half", "url": "u/d10", "assignees": 1, "createdAt": "2026-05-01T00:00:00Z", "labels": [],
+     "sub_issues": {"total": 2, "completed": 1, "last_closed_at": "2026-09-29T00:00:00Z"},
+     "project_items": [{"project": 1, "status": "Ready", "status_since": "2026-09-01T00:00:00Z", "priority": "baixa", "cliente": null}]}
   ],
   "merged_prs": [
     {"repo": "omni-a", "linked": true},

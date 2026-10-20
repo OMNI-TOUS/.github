@@ -48,6 +48,7 @@ def with_previous($has_previous):
           action_section("PRs sem revisão"; $m.actions.prs_waiting_review),
           action_section("Novas sem responsável ou prioridade"; $m.actions.unowned),
           action_section("Bloqueados"; $m.actions.blocked),
+          action_section("Sub-issues todas concluídas"; $m.actions.sub_issues_done),
           heading("Lead time por cliente (mediana / p90, dias)"),
           wip,
           heading("SLA estourado por prioridade"),

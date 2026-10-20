@@ -19,12 +19,20 @@ def priority_heading: "Prioridade";
 def form_priority:
   first((.body // "") | capture("### \(priority_heading)\\s+(?<value>\\S+)") | .value | ascii_downcase) // null;
 
+def sub_issues:
+  {
+    total: .subIssuesSummary.total,
+    completed: .subIssuesSummary.completed,
+    last_closed_at: ([.subIssues.nodes[].closedAt | select(.)] | max)
+  };
+
 def issue:
   {
     id, number, title, url, createdAt, updatedAt, closedAt,
     repo: .repository.name,
     assignees: .assignees.totalCount,
     form_priority: form_priority,
+    sub_issues: sub_issues,
     labels: labels,
     labeled_at: labeled_at,
     linked_pr_updates: linked_pr_updates,

@@ -83,7 +83,21 @@
       "assignees": {
         "totalCount": 2
       },
-      "body": "### O que acontece\n\nErro\n\n### Prioridade\n\nUrgente\n\n### Cliente / órgão\n\n_No response_"
+      "body": "### O que acontece\n\nErro\n\n### Prioridade\n\nUrgente\n\n### Cliente / órgão\n\n_No response_",
+      "subIssuesSummary": {
+        "total": 2,
+        "completed": 2
+      },
+      "subIssues": {
+        "nodes": [
+          {
+            "closedAt": "2026-09-20T10:00:00Z"
+          },
+          {
+            "closedAt": "2026-09-29T10:00:00Z"
+          }
+        ]
+      }
     },
     {
       "id": "I_2",
@@ -111,7 +125,14 @@
       "assignees": {
         "totalCount": 0
       },
-      "body": "Texto livre"
+      "body": "Texto livre",
+      "subIssuesSummary": {
+        "total": 0,
+        "completed": 0
+      },
+      "subIssues": {
+        "nodes": []
+      }
     }
   ],
   "prs": [

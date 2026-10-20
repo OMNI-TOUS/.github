@@ -17,6 +17,7 @@ ACTION_LIST_SIZE=5
 SEARCH_PAGE_SIZE=50
 LABEL_EVENTS_LIMIT=20
 LINKED_PRS_LIMIT=10
+SUB_ISSUES_LIMIT=50
 GUIDE_URL="https://github.com/$ORG/.github/blob/main/docs/guia-do-board.md"
 BOARD_URL="https://github.com/orgs/$ORG/projects/$PROJECT_NUMBER"
 
@@ -35,6 +36,8 @@ ISSUE_FIELDS="... on Issue {
   labels(first: 20) { nodes { name } }
   timelineItems(itemTypes: [LABELED_EVENT], last: $LABEL_EVENTS_LIMIT) { nodes { ... on LabeledEvent { createdAt label { name } } } }
   closedByPullRequestsReferences(first: $LINKED_PRS_LIMIT, includeClosedPrs: true) { nodes { updatedAt } }
+  subIssuesSummary { total completed }
+  subIssues(first: $SUB_ISSUES_LIMIT) { nodes { closedAt } }
   $PROJECT_ITEM_FIELDS
 }"
 

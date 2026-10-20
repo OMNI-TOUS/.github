@@ -12,10 +12,10 @@
       "(sem cliente)": {"n": 1, "p50": 10, "p90": 10}
     }
   },
-  "open_issues": 8,
+  "open_issues": 10,
   "stale": 1,
   "done_but_open": 1,
-  "sla_breaches": {"urgente": 1, "normal": 1},
+  "sla_breaches": {"urgente": 1, "normal": 2},
   "prs_waiting_review": 2,
   "linked_share_pct": 67,
   "actions": {
@@ -33,6 +33,9 @@
     ]},
     "blocked": {"total": 1, "items": [
       {"ref": "omni-c#7", "url": "u/c7", "title": "Waiting client", "days": 18}
+    ]},
+    "sub_issues_done": {"total": 1, "items": [
+      {"ref": "omni-d#9", "url": "u/d9", "title": "Parent done", "days": 20}
     ]}
   }
 }

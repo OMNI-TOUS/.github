@@ -99,6 +99,16 @@
           },
           {
             "type": "TextBlock",
+            "text": "Sub-issues todas concluídas (1)",
+            "weight": "Bolder"
+          },
+          {
+            "type": "TextBlock",
+            "wrap": true,
+            "text": "- [omni-d#9](https://github.com/OMNI-TOUS/omni-d/issues/9) · 20 dias · Parent done"
+          },
+          {
+            "type": "TextBlock",
             "text": "Lead time por cliente (mediana / p90, dias)",
             "weight": "Bolder"
           },

@@ -12,6 +12,7 @@
     "stuck": {"total": 0, "items": []},
     "prs_waiting_review": {"total": 0, "items": []},
     "unowned": {"total": 0, "items": []},
-    "blocked": {"total": 0, "items": []}
+    "blocked": {"total": 0, "items": []},
+    "sub_issues_done": {"total": 0, "items": []}
   }
 }
