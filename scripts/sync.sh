@@ -12,6 +12,10 @@ load_project() {
   load_project_fields "$PROJECT_NUMBER" > "$WORK/project.json"
 }
 
+priority_options() {
+  jq -c --arg name "$PRIORITY_FIELD" '[.fields[] | select(.name == $name) | .options[].name]' "$WORK/project.json"
+}
+
 project_id() {
   jq -r .id "$WORK/project.json"
 }
@@ -43,8 +47,9 @@ plan() {
   jq --argjson project "$PROJECT_NUMBER" --arg now "$(now_iso)" \
     --argjson stale_days "$STALE_DAYS" --arg stale_label "$STALE_LABEL" --arg skip_label "$SKIP_LABEL" \
     --slurpfile produto "$ROOT/config/produto-por-repo.json" \
+    --argjson priority_options "$(priority_options)" \
     '. + {config: {project: $project, now: $now, stale_days: $stale_days, stale_label: $stale_label,
-                   skip_label: $skip_label, produto_by_repo: $produto[0]}}' \
+                   skip_label: $skip_label, produto_by_repo: $produto[0], priority_options: $priority_options}}' \
     "$WORK/normalized.json" | run_jq plan_sync > "$WORK/actions.json"
 }
 
@@ -52,6 +57,11 @@ add_item() {
   local item_id
   item_id="$(add_to_project "$WORK/project.json" "$(jq -r .content_id <<<"$1")")"
   set_option "$WORK/project.json" "$item_id" "Produto" "$(jq -r '.produto // empty' <<<"$1")"
+  set_option "$WORK/project.json" "$item_id" "$PRIORITY_FIELD" "$(jq -r '.priority // empty' <<<"$1")"
+}
+
+set_priority() {
+  set_option "$WORK/project.json" "$(jq -r .item_id <<<"$1")" "$PRIORITY_FIELD" "$(jq -r .priority <<<"$1")"
 }
 
 remove_item() {

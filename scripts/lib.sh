@@ -9,6 +9,7 @@ DRY_RUN="${DRY_RUN:-true}"
 CARD_LINK_CONTEXT="card-link"
 SKIP_LABEL="sem-card"
 STALE_LABEL="parado"
+PRIORITY_FIELD="Priority"
 STALE_DAYS=60
 REVIEW_WAIT_DAYS=2
 STUCK_DAYS=14
@@ -28,7 +29,7 @@ PROJECT_ITEM_FIELDS='projectItems(first: 10) { nodes {
 } }'
 
 ISSUE_FIELDS="... on Issue {
-  id number title url createdAt updatedAt closedAt
+  id number title url body createdAt updatedAt closedAt
   repository { name }
   assignees { totalCount }
   labels(first: 20) { nodes { name } }

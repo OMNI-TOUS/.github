@@ -32,6 +32,13 @@ body:
       options: [Produção, Homologação, Desenvolvimento]
     validations:
       required: true
+  - type: dropdown
+    id: prioridade
+    attributes:
+      label: Prioridade
+      options: [Urgente, Normal, Baixa]
+    validations:
+      required: true
   - type: input
     id: cliente
     attributes:

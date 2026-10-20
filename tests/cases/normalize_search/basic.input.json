@@ -82,7 +82,36 @@
       "url": "https://github.com/OMNI-TOUS/omni-esocial/issues/7",
       "assignees": {
         "totalCount": 2
-      }
+      },
+      "body": "### O que acontece\n\nErro\n\n### Prioridade\n\nUrgente\n\n### Cliente / órgão\n\n_No response_"
+    },
+    {
+      "id": "I_2",
+      "number": 8,
+      "createdAt": "2026-07-01T10:00:00Z",
+      "updatedAt": "2026-07-02T10:00:00Z",
+      "closedAt": null,
+      "repository": {
+        "name": "omni-esocial"
+      },
+      "labels": {
+        "nodes": []
+      },
+      "projectItems": {
+        "nodes": []
+      },
+      "timelineItems": {
+        "nodes": []
+      },
+      "closedByPullRequestsReferences": {
+        "nodes": []
+      },
+      "title": "Issue two",
+      "url": "https://github.com/OMNI-TOUS/omni-esocial/issues/8",
+      "assignees": {
+        "totalCount": 0
+      },
+      "body": "Texto livre"
     }
   ],
   "prs": [

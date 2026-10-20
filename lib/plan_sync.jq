@@ -1,6 +1,18 @@
 include "common";
 
-def add_item($config): {type: "add_item", content_id: .id, produto: $config.produto_by_repo[.repo]};
+def known_form_priority($config):
+  .form_priority as $priority
+  | if $priority != null and ($config.priority_options | index($priority)) != null then $priority else null end;
+
+def add_item($config):
+  {type: "add_item", content_id: .id, produto: $config.produto_by_repo[.repo], priority: known_form_priority($config)};
+
+def priority_action($config):
+  board_item($config.project) as $item
+  | known_form_priority($config) as $priority
+  | if $item != null and $item.priority == null and $priority != null
+    then {type: "set_priority", item_id: $item.item_id, priority: $priority}
+    else empty end;
 
 def label_grace_seconds: 60;
 
@@ -22,7 +34,8 @@ def stale_label_action($config):
 
 def issue_actions($config):
   (if on_board($config.project) then empty else add_item($config) end),
-  stale_label_action($config);
+  stale_label_action($config),
+  priority_action($config);
 
 def pr_actions($config):
   ((.linked or has_label($config.skip_label)) as $ok

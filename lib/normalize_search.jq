@@ -14,11 +14,17 @@ def labeled_at: reduce (.timelineItems.nodes[] | select(.label)) as $event ({}; 
 
 def linked_pr_updates: [.closedByPullRequestsReferences.nodes[].updatedAt];
 
+def priority_heading: "Prioridade";
+
+def form_priority:
+  first((.body // "") | capture("### \(priority_heading)\\s+(?<value>\\S+)") | .value | ascii_downcase) // null;
+
 def issue:
   {
     id, number, title, url, createdAt, updatedAt, closedAt,
     repo: .repository.name,
     assignees: .assignees.totalCount,
+    form_priority: form_priority,
     labels: labels,
     labeled_at: labeled_at,
     linked_pr_updates: linked_pr_updates,

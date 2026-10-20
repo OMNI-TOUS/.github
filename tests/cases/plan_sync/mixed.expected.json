@@ -1,12 +1,13 @@
 [
-  {"type": "add_item", "content_id": "I_new", "produto": "SST"},
-  {"type": "add_item", "content_id": "I_other_board", "produto": null},
+  {"type": "add_item", "content_id": "I_new", "produto": "SST", "priority": "urgente"},
+  {"type": "add_item", "content_id": "I_other_board", "produto": null, "priority": null},
   {"type": "add_label", "repo": "omni-esocial", "number": 4, "label": "parado"},
   {"type": "add_label", "repo": "omni-esocial", "number": 7, "label": "parado"},
   {"type": "remove_label", "repo": "omni-esocial", "number": 8, "label": "parado"},
   {"type": "remove_label", "repo": "omni-esocial", "number": 9, "label": "parado"},
+  {"type": "set_priority", "item_id": "J", "priority": "normal"},
   {"type": "set_status", "repo": "omni-sst", "sha": "s10", "state": "failure"},
-  {"type": "add_item", "content_id": "PR_unlinked_new", "produto": "SST"},
+  {"type": "add_item", "content_id": "PR_unlinked_new", "produto": "SST", "priority": null},
   {"type": "remove_item", "item_id": "PVTI_pr11"},
   {"type": "set_status", "repo": "omni-core", "sha": "s12", "state": "success"},
   {"type": "set_status", "repo": "omni-core", "sha": "s14", "state": "success"}

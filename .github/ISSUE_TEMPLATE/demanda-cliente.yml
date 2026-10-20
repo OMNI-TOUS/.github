@@ -16,6 +16,13 @@ body:
       description: O que o cliente pediu, com as palavras dele quando possível.
     validations:
       required: true
+  - type: dropdown
+    id: prioridade
+    attributes:
+      label: Prioridade
+      options: [Urgente, Normal, Baixa]
+    validations:
+      required: true
   - type: input
     id: prazo
     attributes:
