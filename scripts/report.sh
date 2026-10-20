@@ -49,12 +49,14 @@ collect() {
 }
 
 compute_metrics() {
-  jq -n --argjson project "$PROJECT_NUMBER" --arg now "$(now_iso)" --arg stale_label "$STALE_LABEL" \
-    --argjson review_wait_days "$REVIEW_WAIT_DAYS" --argjson sla_days "$SLA_DAYS" \
+  jq -n --argjson project "$PROJECT_NUMBER" --arg now "$(now_iso)" --arg from "${FROM}T00:00:00Z" \
+    --arg stale_label "$STALE_LABEL" --argjson review_wait_days "$REVIEW_WAIT_DAYS" \
+    --argjson stuck_days "$STUCK_DAYS" --argjson action_list_size "$ACTION_LIST_SIZE" --argjson sla_days "$SLA_DAYS" \
     --slurpfile period "$WORK/period.json" --slurpfile snapshot "$WORK/snapshot.json" \
     '{
-      config: {project: $project, now: $now, stale_label: $stale_label,
-               review_wait_days: $review_wait_days, sla_days: $sla_days},
+      config: {project: $project, now: $now, from: $from, stale_label: $stale_label,
+               review_wait_days: $review_wait_days, stuck_days: $stuck_days,
+               action_list_size: $action_list_size, sla_days: $sla_days},
       closed_issues: $period[0].issues,
       merged_prs: $period[0].prs,
       open_issues: $snapshot[0].issues,

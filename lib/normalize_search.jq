@@ -3,6 +3,7 @@ def project_items:
     project: .project.number,
     item_id: .id,
     status: .status.name,
+    status_since: .status.updatedAt,
     priority: .priority.name,
     cliente: .cliente.name
   }];
@@ -15,8 +16,9 @@ def linked_pr_updates: [.closedByPullRequestsReferences.nodes[].updatedAt];
 
 def issue:
   {
-    id, number, createdAt, updatedAt, closedAt,
+    id, number, title, url, createdAt, updatedAt, closedAt,
     repo: .repository.name,
+    assignees: .assignees.totalCount,
     labels: labels,
     labeled_at: labeled_at,
     linked_pr_updates: linked_pr_updates,
@@ -28,7 +30,7 @@ def card_link_state($context):
 
 def pr($context):
   {
-    id, number, createdAt, mergedAt,
+    id, number, title, url, createdAt, mergedAt,
     repo: .repository.name,
     sha: .headRefOid,
     labels: labels,

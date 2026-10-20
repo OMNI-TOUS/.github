@@ -59,6 +59,46 @@
           },
           {
             "type": "TextBlock",
+            "text": "Travados em In progress / In review (3)",
+            "weight": "Bolder"
+          },
+          {
+            "type": "TextBlock",
+            "wrap": true,
+            "text": "- [omni-b#5](https://github.com/OMNI-TOUS/omni-b/issues/5) · 110 dias · Old review\r- [omni-c#8](https://github.com/OMNI-TOUS/omni-c/issues/8) · 50 dias · Slow work\r- e mais 1"
+          },
+          {
+            "type": "TextBlock",
+            "text": "PRs sem revisão (1)",
+            "weight": "Bolder"
+          },
+          {
+            "type": "TextBlock",
+            "wrap": true,
+            "text": "- [omni-b#13](https://github.com/OMNI-TOUS/omni-b/pull/13) · 48 dias · PR forgotten"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Novas sem responsável ou prioridade (0)",
+            "weight": "Bolder"
+          },
+          {
+            "type": "TextBlock",
+            "wrap": true,
+            "text": "Nenhum."
+          },
+          {
+            "type": "TextBlock",
+            "text": "Bloqueados (1)",
+            "weight": "Bolder"
+          },
+          {
+            "type": "TextBlock",
+            "wrap": true,
+            "text": "- [omni-c#7](https://github.com/OMNI-TOUS/omni-c/issues/7) · 18 dias · Waiting client"
+          },
+          {
+            "type": "TextBlock",
             "text": "Lead time por cliente (mediana / p90, dias)",
             "weight": "Bolder"
           },

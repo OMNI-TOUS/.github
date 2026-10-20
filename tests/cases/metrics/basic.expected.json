@@ -12,10 +12,27 @@
       "(sem cliente)": {"n": 1, "p50": 10, "p90": 10}
     }
   },
-  "open_issues": 3,
+  "open_issues": 8,
   "stale": 1,
   "done_but_open": 1,
   "sla_breaches": {"urgente": 1, "normal": 1},
-  "prs_waiting_review": 1,
-  "linked_share_pct": 67
+  "prs_waiting_review": 2,
+  "linked_share_pct": 67,
+  "actions": {
+    "stuck": {"total": 3, "items": [
+      {"ref": "omni-b#5", "url": "u/b5", "title": "Old review", "days": 110},
+      {"ref": "omni-c#8", "url": "u/c8", "title": "Slow work", "days": 50}
+    ]},
+    "prs_waiting_review": {"total": 2, "items": [
+      {"ref": "omni-b#13", "url": "u/b13", "title": "PR forgotten", "days": 48},
+      {"ref": "omni-a#10", "url": "u/a10", "title": "PR waiting", "days": 9}
+    ]},
+    "unowned": {"total": 2, "items": [
+      {"ref": "omni-c#6", "url": "u/c6", "title": "New backlog", "days": 4},
+      {"ref": "omni-a#1", "url": "u/a1", "title": "New done", "days": 2}
+    ]},
+    "blocked": {"total": 1, "items": [
+      {"ref": "omni-c#7", "url": "u/c7", "title": "Waiting client", "days": 18}
+    ]}
+  }
 }

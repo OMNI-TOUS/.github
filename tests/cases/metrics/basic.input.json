@@ -2,8 +2,11 @@
   "config": {
     "project": 1,
     "now": "2026-10-19T12:00:00Z",
+    "from": "2026-10-12T00:00:00Z",
     "stale_label": "parado",
     "review_wait_days": 2,
+    "stuck_days": 14,
+    "action_list_size": 2,
     "sla_days": {"urgente": 2, "normal": 15}
   },
   "closed_issues": [
@@ -15,11 +18,21 @@
      "project_items": [{"project": 1, "status": "Done", "priority": null, "cliente": "PGE"}]}
   ],
   "open_issues": [
-    {"repo": "omni-a", "createdAt": "2026-10-17T00:00:00Z", "labels": [],
-     "project_items": [{"project": 1, "status": "Done", "priority": "urgente", "cliente": null}]},
-    {"repo": "omni-a", "createdAt": "2026-09-01T00:00:00Z", "labels": [],
-     "project_items": [{"project": 1, "status": "In progress", "priority": "normal", "cliente": null}]},
-    {"repo": "omni-b", "createdAt": "2026-06-01T00:00:00Z", "labels": ["parado"], "project_items": []}
+    {"repo": "omni-a", "number": 1, "title": "New done", "url": "u/a1", "assignees": 0, "createdAt": "2026-10-17T00:00:00Z", "labels": [],
+     "project_items": [{"project": 1, "status": "Done", "status_since": "2026-10-18T00:00:00Z", "priority": "urgente", "cliente": null}]},
+    {"repo": "omni-a", "number": 2, "title": "Working", "url": "u/a2", "assignees": 1, "createdAt": "2026-09-01T00:00:00Z", "labels": [],
+     "project_items": [{"project": 1, "status": "In progress", "status_since": "2026-09-20T00:00:00Z", "priority": "normal", "cliente": null}]},
+    {"repo": "omni-b", "number": 3, "title": "Off board", "url": "u/b3", "assignees": 0, "createdAt": "2026-06-01T00:00:00Z", "labels": ["parado"], "project_items": []},
+    {"repo": "omni-b", "number": 4, "title": "Fresh review", "url": "u/b4", "assignees": 1, "createdAt": "2026-08-01T00:00:00Z", "labels": [],
+     "project_items": [{"project": 1, "status": "In review", "status_since": "2026-10-10T00:00:00Z", "priority": null, "cliente": null}]},
+    {"repo": "omni-b", "number": 5, "title": "Old review", "url": "u/b5", "assignees": 1, "createdAt": "2026-07-01T00:00:00Z", "labels": [],
+     "project_items": [{"project": 1, "status": "In review", "status_since": "2026-07-01T00:00:00Z", "priority": null, "cliente": null}]},
+    {"repo": "omni-c", "number": 6, "title": "New backlog", "url": "u/c6", "assignees": 1, "createdAt": "2026-10-15T00:00:00Z", "labels": [],
+     "project_items": [{"project": 1, "status": "Backlog", "status_since": "2026-10-15T00:00:00Z", "priority": null, "cliente": null}]},
+    {"repo": "omni-c", "number": 7, "title": "Waiting client", "url": "u/c7", "assignees": 1, "createdAt": "2026-05-01T00:00:00Z", "labels": [],
+     "project_items": [{"project": 1, "status": "Bloqueado", "status_since": "2026-10-01T00:00:00Z", "priority": null, "cliente": null}]},
+    {"repo": "omni-c", "number": 8, "title": "Slow work", "url": "u/c8", "assignees": 1, "createdAt": "2026-05-01T00:00:00Z", "labels": [],
+     "project_items": [{"project": 1, "status": "In progress", "status_since": "2026-08-30T00:00:00Z", "priority": null, "cliente": null}]}
   ],
   "merged_prs": [
     {"repo": "omni-a", "linked": true},
@@ -27,8 +40,9 @@
     {"repo": "omni-b", "linked": true}
   ],
   "open_prs": [
-    {"repo": "omni-a", "createdAt": "2026-10-10T00:00:00Z", "reviews": 0},
-    {"repo": "omni-a", "createdAt": "2026-10-18T00:00:00Z", "reviews": 0},
-    {"repo": "omni-b", "createdAt": "2026-10-01T00:00:00Z", "reviews": 2}
+    {"repo": "omni-a", "number": 10, "title": "PR waiting", "url": "u/a10", "createdAt": "2026-10-10T00:00:00Z", "reviews": 0},
+    {"repo": "omni-a", "number": 11, "title": "PR new", "url": "u/a11", "createdAt": "2026-10-18T00:00:00Z", "reviews": 0},
+    {"repo": "omni-b", "number": 12, "title": "PR reviewed", "url": "u/b12", "createdAt": "2026-10-01T00:00:00Z", "reviews": 2},
+    {"repo": "omni-b", "number": 13, "title": "PR forgotten", "url": "u/b13", "createdAt": "2026-09-01T00:00:00Z", "reviews": 0}
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "config": {"project": 1, "now": "2026-10-19T12:00:00Z", "stale_label": "parado", "review_wait_days": 2, "sla_days": {}},
+  "config": {"project": 1, "now": "2026-10-19T12:00:00Z", "from": "2026-10-12T00:00:00Z", "stale_label": "parado", "review_wait_days": 2, "stuck_days": 14, "action_list_size": 5, "sla_days": {}},
   "closed_issues": [],
   "open_issues": [],
   "merged_prs": [],

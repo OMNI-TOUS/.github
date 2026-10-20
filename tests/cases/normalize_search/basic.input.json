@@ -25,7 +25,8 @@
               "number": 1
             },
             "status": {
-              "name": "Done"
+              "name": "Done",
+              "updatedAt": "2026-07-03T10:00:00Z"
             },
             "priority": {
               "name": "urgente"
@@ -76,6 +77,11 @@
             "updatedAt": "2026-06-20T10:00:00Z"
           }
         ]
+      },
+      "title": "Issue one",
+      "url": "https://github.com/OMNI-TOUS/omni-esocial/issues/7",
+      "assignees": {
+        "totalCount": 2
       }
     }
   ],
@@ -110,7 +116,9 @@
           "context": "card-link",
           "state": "failure"
         }
-      ]
+      ],
+      "title": "PR one",
+      "url": "https://github.com/OMNI-TOUS/omni-sst/pull/12"
     },
     {
       "id": "PR_2",
@@ -147,7 +155,9 @@
           }
         ]
       },
-      "statuses": []
+      "statuses": [],
+      "title": "PR two",
+      "url": "https://github.com/OMNI-TOUS/omni-core/pull/13"
     }
   ]
 }

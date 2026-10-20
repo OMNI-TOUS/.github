@@ -7,5 +7,11 @@
   "done_but_open": 0,
   "sla_breaches": {},
   "prs_waiting_review": 0,
-  "linked_share_pct": null
+  "linked_share_pct": null,
+  "actions": {
+    "stuck": {"total": 0, "items": []},
+    "prs_waiting_review": {"total": 0, "items": []},
+    "unowned": {"total": 0, "items": []},
+    "blocked": {"total": 0, "items": []}
+  }
 }

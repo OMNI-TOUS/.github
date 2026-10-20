@@ -11,6 +11,8 @@ SKIP_LABEL="sem-card"
 STALE_LABEL="parado"
 STALE_DAYS=60
 REVIEW_WAIT_DAYS=2
+STUCK_DAYS=14
+ACTION_LIST_SIZE=5
 SEARCH_PAGE_SIZE=50
 LABEL_EVENTS_LIMIT=20
 LINKED_PRS_LIMIT=10
@@ -20,14 +22,15 @@ BOARD_URL="https://github.com/orgs/$ORG/projects/$PROJECT_NUMBER"
 PROJECT_ITEM_FIELDS='projectItems(first: 10) { nodes {
   id
   project { number }
-  status: fieldValueByName(name: "Status") { ... on ProjectV2ItemFieldSingleSelectValue { name } }
+  status: fieldValueByName(name: "Status") { ... on ProjectV2ItemFieldSingleSelectValue { name updatedAt } }
   priority: fieldValueByName(name: "Priority") { ... on ProjectV2ItemFieldSingleSelectValue { name } }
   cliente: fieldValueByName(name: "Cliente") { ... on ProjectV2ItemFieldSingleSelectValue { name } }
 } }'
 
 ISSUE_FIELDS="... on Issue {
-  id number createdAt updatedAt closedAt
+  id number title url createdAt updatedAt closedAt
   repository { name }
+  assignees { totalCount }
   labels(first: 20) { nodes { name } }
   timelineItems(itemTypes: [LABELED_EVENT], last: $LABEL_EVENTS_LIMIT) { nodes { ... on LabeledEvent { createdAt label { name } } } }
   closedByPullRequestsReferences(first: $LINKED_PRS_LIMIT, includeClosedPrs: true) { nodes { updatedAt } }
@@ -35,7 +38,7 @@ ISSUE_FIELDS="... on Issue {
 }"
 
 PR_FIELDS="... on PullRequest {
-  id number createdAt mergedAt headRefOid
+  id number title url createdAt mergedAt headRefOid
   repository { name }
   labels(first: 20) { nodes { name } }
   closingIssuesReferences { totalCount }
