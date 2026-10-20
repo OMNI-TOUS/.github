@@ -25,4 +25,4 @@ body:
     id: jira
     attributes:
       label: Card Jira
-      placeholder: Ex.: TC-123
+      placeholder: "Ex.: TC-123"
