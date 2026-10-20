@@ -63,6 +63,14 @@
             "title": "Slow work",
             "days": 50
           }
+        ],
+        "more": [
+          {
+            "ref": "omni-a#2",
+            "url": "https://github.com/OMNI-TOUS/omni-a/issues/2",
+            "title": "Working",
+            "days": 29
+          }
         ]
       },
       "prs_waiting_review": {
@@ -74,11 +82,14 @@
             "title": "PR forgotten",
             "days": 48
           }
-        ]
+        ],
+        "more": [],
+        "url": "https://github.com/search?type=pullrequests&q=org%3AOMNI-TOUS"
       },
       "unowned": {
         "total": 0,
-        "items": []
+        "items": [],
+        "more": []
       },
       "blocked": {
         "total": 1,
@@ -89,7 +100,9 @@
             "title": "Waiting client",
             "days": 18
           }
-        ]
+        ],
+        "more": [],
+        "url": "https://github.com/orgs/OMNI-TOUS/projects/1/views/3?filterQuery=status%3ABloqueado"
       },
       "sub_issues_done": {
         "total": 1,
@@ -100,7 +113,8 @@
             "title": "Parent done",
             "days": 20
           }
-        ]
+        ],
+        "more": []
       }
     }
   },

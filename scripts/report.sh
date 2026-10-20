@@ -49,12 +49,14 @@ collect() {
 }
 
 compute_metrics() {
-  jq -n --argjson project "$PROJECT_NUMBER" --arg now "$(now_iso)" --arg from "${FROM}T00:00:00Z" \
+  jq -n --arg org "$ORG" --argjson project "$PROJECT_NUMBER" --arg board_view_url "$BOARD_TABLE_VIEW_URL" \
+    --arg now "$(now_iso)" --arg from "${FROM}T00:00:00Z" \
     --arg stale_label "$STALE_LABEL" --argjson review_wait_days "$REVIEW_WAIT_DAYS" \
     --argjson stuck_days "$STUCK_DAYS" --argjson action_list_size "$ACTION_LIST_SIZE" --argjson sla_days "$SLA_DAYS" \
     --slurpfile period "$WORK/period.json" --slurpfile snapshot "$WORK/snapshot.json" \
     '{
-      config: {project: $project, now: $now, from: $from, stale_label: $stale_label,
+      config: {org: $org, project: $project, board_view_url: $board_view_url,
+               now: $now, from: $from, stale_label: $stale_label,
                review_wait_days: $review_wait_days, stuck_days: $stuck_days,
                action_list_size: $action_list_size, sla_days: $sla_days},
       closed_issues: $period[0].issues,
@@ -79,7 +81,7 @@ render() {
     '{title: $title, from: $from, to: $to, board_url: $board_url, metrics: $metrics[0], previous: $previous}' \
     > "$WORK/report_input.json"
   run_jq format_report -r "$WORK/report_input.json" > "$WORK/report.md"
-  run_jq format_teams "$WORK/report_input.json" > "$WORK/teams.json"
+  run_jq format_teams -c "$WORK/report_input.json" > "$WORK/teams.json"
 }
 
 post_teams() {

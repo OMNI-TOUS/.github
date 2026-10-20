@@ -2,40 +2,132 @@
   "issues_closed": 3,
   "prs_merged": 3,
   "lead_time_days": {
-    "all": {"n": 3, "p50": 10, "p90": 30},
+    "all": {
+      "n": 3,
+      "p50": 10,
+      "p90": 30
+    },
     "by_repo": {
-      "omni-a": {"n": 2, "p50": 2, "p90": 10},
-      "omni-b": {"n": 1, "p50": 30, "p90": 30}
+      "omni-a": {
+        "n": 2,
+        "p50": 2,
+        "p90": 10
+      },
+      "omni-b": {
+        "n": 1,
+        "p50": 30,
+        "p90": 30
+      }
     },
     "by_cliente": {
-      "PGE": {"n": 2, "p50": 2, "p90": 30},
-      "(sem cliente)": {"n": 1, "p50": 10, "p90": 10}
+      "PGE": {
+        "n": 2,
+        "p50": 2,
+        "p90": 30
+      },
+      "(sem cliente)": {
+        "n": 1,
+        "p50": 10,
+        "p90": 10
+      }
     }
   },
   "open_issues": 10,
   "stale": 1,
   "done_but_open": 1,
-  "sla_breaches": {"urgente": 1, "normal": 2},
+  "sla_breaches": {
+    "urgente": 1,
+    "normal": 2
+  },
   "prs_waiting_review": 2,
   "linked_share_pct": 67,
   "actions": {
-    "stuck": {"total": 3, "items": [
-      {"ref": "omni-b#5", "url": "u/b5", "title": "Old review", "days": 110},
-      {"ref": "omni-c#8", "url": "u/c8", "title": "Slow work", "days": 50}
-    ]},
-    "prs_waiting_review": {"total": 2, "items": [
-      {"ref": "omni-b#13", "url": "u/b13", "title": "PR forgotten", "days": 48},
-      {"ref": "omni-a#10", "url": "u/a10", "title": "PR waiting", "days": 9}
-    ]},
-    "unowned": {"total": 2, "items": [
-      {"ref": "omni-c#6", "url": "u/c6", "title": "New backlog", "days": 4},
-      {"ref": "omni-a#1", "url": "u/a1", "title": "New done", "days": 2}
-    ]},
-    "blocked": {"total": 1, "items": [
-      {"ref": "omni-c#7", "url": "u/c7", "title": "Waiting client", "days": 18}
-    ]},
-    "sub_issues_done": {"total": 1, "items": [
-      {"ref": "omni-d#9", "url": "u/d9", "title": "Parent done", "days": 20}
-    ]}
+    "stuck": {
+      "total": 3,
+      "items": [
+        {
+          "ref": "omni-b#5",
+          "url": "u/b5",
+          "title": "Old review",
+          "days": 110
+        },
+        {
+          "ref": "omni-c#8",
+          "url": "u/c8",
+          "title": "Slow work",
+          "days": 50
+        }
+      ],
+      "more": [
+        {
+          "ref": "omni-a#2",
+          "url": "u/a2",
+          "title": "Working",
+          "days": 29
+        }
+      ]
+    },
+    "prs_waiting_review": {
+      "total": 2,
+      "items": [
+        {
+          "ref": "omni-b#13",
+          "url": "u/b13",
+          "title": "PR forgotten",
+          "days": 48
+        },
+        {
+          "ref": "omni-a#10",
+          "url": "u/a10",
+          "title": "PR waiting",
+          "days": 9
+        }
+      ],
+      "more": [],
+      "url": "https://github.com/search?type=pullrequests&q=org%3AOMNI-TOUS%20is%3Apr%20is%3Aopen%20draft%3Afalse%20archived%3Afalse%20review%3Anone%20created%3A%3C2026-10-17T12%3A00%3A00Z"
+    },
+    "unowned": {
+      "total": 2,
+      "items": [
+        {
+          "ref": "omni-c#6",
+          "url": "u/c6",
+          "title": "New backlog",
+          "days": 4
+        },
+        {
+          "ref": "omni-a#1",
+          "url": "u/a1",
+          "title": "New done",
+          "days": 2
+        }
+      ],
+      "more": []
+    },
+    "blocked": {
+      "total": 1,
+      "items": [
+        {
+          "ref": "omni-c#7",
+          "url": "u/c7",
+          "title": "Waiting client",
+          "days": 18
+        }
+      ],
+      "more": [],
+      "url": "https://github.com/orgs/OMNI-TOUS/projects/1/views/3?filterQuery=is%3Aissue%20is%3Aopen%20status%3ABloqueado"
+    },
+    "sub_issues_done": {
+      "total": 1,
+      "items": [
+        {
+          "ref": "omni-d#9",
+          "url": "u/d9",
+          "title": "Parent done",
+          "days": 20
+        }
+      ],
+      "more": []
+    }
   }
 }

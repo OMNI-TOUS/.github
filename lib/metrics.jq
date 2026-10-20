@@ -15,7 +15,9 @@ def blocked_status: "Bloqueado";
 
 def action_item($days): {ref: "\(.repo)#\(.number)", url, title, days: ($days | floor)};
 
-def action_list($size): sort_by(-.days) | {total: length, items: .[:$size]};
+def action_list($size): sort_by(-.days) | {total: length, items: .[:$size], more: .[$size:]};
+
+def search_url: "https://github.com/search?type=pullrequests&q=";
 
 def stats_by(f): group_by(f) | map({key: (.[0] | f), value: (map(.days) | lead_stats)}) | from_entries;
 
@@ -26,6 +28,10 @@ def stats_by(f): group_by(f) | map({key: (.[0] | f), value: (map(.days) | lead_s
   def has_status($statuses): board_field("status") as $status | $statuses | index($status) != null;
   def all_sub_issues_done: (.sub_issues.total // 0) > 0 and .sub_issues.completed == .sub_issues.total;
   def waiting_review: .reviews == 0 and age > $config.review_wait_days;
+  def review_cutoff: $config.now | fromdate - $config.review_wait_days * seconds_per_day | todate;
+  def waiting_review_url:
+    search_url + ("org:\($config.org) is:pr is:open draft:false archived:false review:none created:<\(review_cutoff)" | @uri);
+  def blocked_url: "\($config.board_view_url)?filterQuery=" + ("is:issue is:open status:\(blocked_status)" | @uri);
   [.closed_issues[] | {
     repo,
     cliente: (board_field("cliente") // no_cliente),
@@ -54,13 +60,14 @@ def stats_by(f): group_by(f) | map({key: (.[0] | f), value: (map(.days) | lead_s
       stuck: ([.open_issues[]
           | select(has_status(stuck_statuses) and board_field("status_since") != null and status_age > $config.stuck_days)
           | action_item(status_age)] | action_list($config.action_list_size)),
-      prs_waiting_review: ([.open_prs[] | select(waiting_review) | action_item(age)] | action_list($config.action_list_size)),
+      prs_waiting_review: ([.open_prs[] | select(waiting_review) | action_item(age)]
+        | action_list($config.action_list_size) + {url: waiting_review_url}),
       unowned: ([.open_issues[]
           | select(days_between($config.from; .createdAt) >= 0 and (.assignees == 0 or board_field("priority") == null))
           | action_item(age)] | action_list($config.action_list_size)),
       blocked: ([.open_issues[]
           | select(has_status([blocked_status]) and board_field("status_since") != null)
-          | action_item(status_age)] | action_list($config.action_list_size)),
+          | action_item(status_age)] | action_list($config.action_list_size) + {url: blocked_url}),
       sub_issues_done: ([.open_issues[]
           | select(all_sub_issues_done)
           | action_item(days_between(.sub_issues.last_closed_at; $config.now))] | action_list($config.action_list_size))

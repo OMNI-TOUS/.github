@@ -20,6 +20,8 @@ LINKED_PRS_LIMIT=10
 SUB_ISSUES_LIMIT=50
 GUIDE_URL="https://github.com/$ORG/.github/blob/main/docs/guia-do-board.md"
 BOARD_URL="https://github.com/orgs/$ORG/projects/$PROJECT_NUMBER"
+BOARD_TABLE_VIEW=3
+BOARD_TABLE_VIEW_URL="$BOARD_URL/views/$BOARD_TABLE_VIEW"
 
 PROJECT_ITEM_FIELDS='projectItems(first: 10) { nodes {
   id

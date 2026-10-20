@@ -1,7 +1,11 @@
 {
   "issues_closed": 0,
   "prs_merged": 0,
-  "lead_time_days": {"all": null, "by_repo": {}, "by_cliente": {}},
+  "lead_time_days": {
+    "all": null,
+    "by_repo": {},
+    "by_cliente": {}
+  },
   "open_issues": 0,
   "stale": 0,
   "done_but_open": 0,
@@ -9,10 +13,32 @@
   "prs_waiting_review": 0,
   "linked_share_pct": null,
   "actions": {
-    "stuck": {"total": 0, "items": []},
-    "prs_waiting_review": {"total": 0, "items": []},
-    "unowned": {"total": 0, "items": []},
-    "blocked": {"total": 0, "items": []},
-    "sub_issues_done": {"total": 0, "items": []}
+    "stuck": {
+      "total": 0,
+      "items": [],
+      "more": []
+    },
+    "prs_waiting_review": {
+      "total": 0,
+      "items": [],
+      "more": [],
+      "url": "https://github.com/search?type=pullrequests&q=org%3AOMNI-TOUS%20is%3Apr%20is%3Aopen%20draft%3Afalse%20archived%3Afalse%20review%3Anone%20created%3A%3C2026-10-17T12%3A00%3A00Z"
+    },
+    "unowned": {
+      "total": 0,
+      "items": [],
+      "more": []
+    },
+    "blocked": {
+      "total": 0,
+      "items": [],
+      "more": [],
+      "url": "https://github.com/orgs/OMNI-TOUS/projects/1/views/3?filterQuery=is%3Aissue%20is%3Aopen%20status%3ABloqueado"
+    },
+    "sub_issues_done": {
+      "total": 0,
+      "items": [],
+      "more": []
+    }
   }
 }

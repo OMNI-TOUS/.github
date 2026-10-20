@@ -1,5 +1,7 @@
 {
   "config": {
+    "org": "OMNI-TOUS",
+    "board_view_url": "https://github.com/orgs/OMNI-TOUS/projects/1/views/3",
     "project": 1,
     "now": "2026-10-19T12:00:00Z",
     "from": "2026-10-12T00:00:00Z",

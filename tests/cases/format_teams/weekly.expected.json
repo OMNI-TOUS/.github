@@ -370,10 +370,71 @@
             ]
           },
           {
-            "type": "TextBlock",
-            "text": "e mais 1",
-            "wrap": true,
-            "isSubtle": true
+            "type": "ActionSet",
+            "actions": [
+              {
+                "type": "Action.ToggleVisibility",
+                "title": "e mais 1",
+                "targetElements": [
+                  "more-stuck"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Table",
+            "id": "more-stuck",
+            "isVisible": false,
+            "columns": [
+              {
+                "width": 2
+              },
+              {
+                "width": 1
+              },
+              {
+                "width": 5
+              }
+            ],
+            "firstRowAsHeaders": false,
+            "showGridLines": false,
+            "rows": [
+              {
+                "type": "TableRow",
+                "cells": [
+                  {
+                    "type": "TableCell",
+                    "items": [
+                      {
+                        "type": "TextBlock",
+                        "text": "[omni-a#2](https://github.com/OMNI-TOUS/omni-a/issues/2)",
+                        "wrap": true
+                      }
+                    ]
+                  },
+                  {
+                    "type": "TableCell",
+                    "items": [
+                      {
+                        "type": "TextBlock",
+                        "text": "29",
+                        "wrap": true
+                      }
+                    ]
+                  },
+                  {
+                    "type": "TableCell",
+                    "items": [
+                      {
+                        "type": "TextBlock",
+                        "text": "Working",
+                        "wrap": true
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           },
           {
             "type": "TextBlock",
@@ -691,7 +752,10 @@
             "title": "Abrir board",
             "url": "https://github.com/orgs/OMNI-TOUS/projects/1"
           }
-        ]
+        ],
+        "msteams": {
+          "width": "Full"
+        }
       }
     }
   ]

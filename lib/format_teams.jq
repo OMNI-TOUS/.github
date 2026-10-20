@@ -16,26 +16,37 @@ def cell: {type: "TableCell", items: [text(.)]};
 
 def header_cell: {type: "TableCell", items: [text(.) + {weight: "Bolder"}]};
 
-def table($widths; $header; $rows):
+def table($widths; $rows):
   {
     type: "Table",
     columns: ($widths | map({width: .})),
-    firstRowAsHeaders: true,
+    firstRowAsHeaders: false,
     showGridLines: false,
-    rows: ([{type: "TableRow", cells: ($header | map(header_cell))}]
-      + ($rows | map({type: "TableRow", cells: map(cell)})))
+    rows: ($rows | map({type: "TableRow", cells: map(cell)}))
   };
 
-def action_table:
-  table(action_widths; ["Item", "Dias", "Título"]; .items | map(["[\(.ref)](\(.url))", (.days | tostring), .title]));
+def table($widths; $header; $rows):
+  table($widths; $rows)
+  | .firstRowAsHeaders = true
+  | .rows = [{type: "TableRow", cells: ($header | map(header_cell))}] + .rows;
 
-def remaining: .total - (.items | length);
+def action_rows: map(["[\(.ref)](\(.url))", (.days | tostring), .title]);
 
-def action_section($title; $list):
-  heading("\($title) (\($list.total))"),
-  (if $list.total == 0 then text(none)
-   else ($list | action_table), ($list | remaining | if . > 0 then text("e mais \(.)") + {isSubtle: true} else empty end)
-   end);
+def more_label: "e mais \(.more | length)";
+
+def more_link: text("[\(more_label)](\(.url))") + {isSubtle: true};
+
+def more_toggle($id):
+  {type: "ActionSet", actions: [{type: "Action.ToggleVisibility", title: more_label, targetElements: [$id]}]},
+  (table(action_widths; .more | action_rows) + {id: $id, isVisible: false});
+
+def action_section($title; $key):
+  .[$key] as $list
+  | heading("\($title) (\($list.total))"),
+    (if $list.total == 0 then text(none)
+     else table(action_widths; ["Item", "Dias", "Título"]; $list.items | action_rows),
+       ($list | if (.more | length) == 0 then empty elif .url then more_link else more_toggle("more-\($key)") end)
+     end);
 
 def summary_table($m; $previous):
   summary_rows($m; $previous // {}) as $rows
@@ -52,15 +63,17 @@ def summary_table($m; $previous):
         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
         type: "AdaptiveCard",
         version: "1.5",
+        msteams: {width: "Full"},
         body: [
           {type: "TextBlock", text: .title, weight: "Bolder", size: "Medium"},
           {type: "TextBlock", text: "Período: \(.from) a \(.to)", isSubtle: true, spacing: "None"},
           summary_table($m; .previous),
-          action_section("Travados em In progress / In review"; $m.actions.stuck),
-          action_section("PRs sem revisão"; $m.actions.prs_waiting_review),
-          action_section("Novas sem responsável ou prioridade"; $m.actions.unowned),
-          action_section("Bloqueados"; $m.actions.blocked),
-          action_section("Sub-issues todas concluídas"; $m.actions.sub_issues_done),
+          ($m.actions
+            | action_section("Travados em In progress / In review"; "stuck"),
+              action_section("PRs sem revisão"; "prs_waiting_review"),
+              action_section("Novas sem responsável ou prioridade"; "unowned"),
+              action_section("Bloqueados"; "blocked"),
+              action_section("Sub-issues todas concluídas"; "sub_issues_done")),
           text("Lead time por cliente e SLA por prioridade: WIP") + {isSubtle: true, spacing: "Large"}
         ],
         actions: [{type: "Action.OpenUrl", title: "Abrir board", url: .board_url}]
