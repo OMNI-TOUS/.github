@@ -19,7 +19,7 @@ def lead_table($label; $stats):
     "",
     "Período: \(.from) a \(.to)",
     "",
-    table(["Indicador", "Atual", "Anterior"]; summary_rows($m; .previous // {}) | map(row(.))),
+    table(["Indicador", "Atual", "Anterior"]; summary_rows($m; .previous // {}) + [waiting_review_row($m; .previous // {})] | map(row(.))),
     "",
     "### Lead time por repositório",
     "",

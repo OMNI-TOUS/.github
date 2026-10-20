@@ -14,8 +14,10 @@ def summary_rows($m; $p):
     ["Lead time (mediana / p90, dias)", ($m.lead_time_days.all | lead_pair), ($p.lead_time_days.all | lead_pair)],
     ["Issues abertas", ($m.open_issues | show), ($p.open_issues | show)],
     ["Paradas (60+ dias sem atividade)", ($m.stale | show), ($p.stale | show)],
-    ["Done no board, mas abertas", ($m.done_but_open | show), ($p.done_but_open | show)],
-    ["PRs aguardando revisão", ($m.prs_waiting_review | show), ($p.prs_waiting_review | show)]
+    ["Done no board, mas abertas", ($m.done_but_open | show), ($p.done_but_open | show)]
   ];
+
+def waiting_review_row($m; $p):
+  ["PRs aguardando revisão", ($m.prs_waiting_review | show), ($p.prs_waiting_review | show)];
 
 def sorted_entries: to_entries | sort_by(.key);
