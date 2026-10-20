@@ -6,6 +6,7 @@ const ORG = "OMNI-TOUS";
 const REPO = ".github";
 const WORKFLOW = "org-sync.yml";
 const BRANCH = "main";
+const DEFAULT_JOB = "sync";
 const CLOCK_SKEW_SECONDS = 60;
 const JWT_LIFETIME_SECONDS = 540;
 
@@ -46,10 +47,10 @@ const installationToken = async ({ appId, installationId, privateKey, fetch, now
   return (await response.json()).token;
 };
 
-export const dispatchSync = async (options) => {
+export const dispatchJob = async ({ job = DEFAULT_JOB, ...options }) => {
   const token = await installationToken(options);
   await post(options.fetch, `/repos/${ORG}/${REPO}/actions/workflows/${WORKFLOW}/dispatches`, token, {
     ref: BRANCH,
-    inputs: { job: "sync", "dry-run": "false" },
+    inputs: { job, "dry-run": "false" },
   });
 };

@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { generateKeyPairSync, createVerify } from "node:crypto";
-import { appJwt, dispatchSync } from "./dispatch.mjs";
+import { appJwt, dispatchJob } from "./dispatch.mjs";
 
 const { privateKey, publicKey } = generateKeyPairSync("rsa", {
   modulusLength: 2048,
@@ -36,10 +36,10 @@ test("appJwt signs an RS256 token issued by the app", () => {
   assert.ok(verifier.verify(publicKey, signature, "base64url"));
 });
 
-test("dispatchSync gets an actions-only token for the .github repo", async () => {
+test("dispatchJob gets an actions-only token for the .github repo", async () => {
   const { fetch, calls } = fakeFetch([tokenResponse, dispatchResponse]);
 
-  await dispatchSync({ appId: APP_ID, installationId: INSTALLATION_ID, privateKey, fetch, nowSeconds: NOW_SECONDS });
+  await dispatchJob({ appId: APP_ID, installationId: INSTALLATION_ID, privateKey, fetch, nowSeconds: NOW_SECONDS });
 
   assert.equal(calls[0].url, `https://api.github.com/app/installations/${INSTALLATION_ID}/access_tokens`);
   assert.equal(calls[0].options.method, "POST");
@@ -47,10 +47,10 @@ test("dispatchSync gets an actions-only token for the .github repo", async () =>
   assert.deepEqual(calls[0].body, { repositories: [".github"], permissions: { actions: "write" } });
 });
 
-test("dispatchSync starts a real sync run on main", async () => {
+test("dispatchJob starts a real sync run on main", async () => {
   const { fetch, calls } = fakeFetch([tokenResponse, dispatchResponse]);
 
-  await dispatchSync({ appId: APP_ID, installationId: INSTALLATION_ID, privateKey, fetch, nowSeconds: NOW_SECONDS });
+  await dispatchJob({ appId: APP_ID, installationId: INSTALLATION_ID, privateKey, fetch, nowSeconds: NOW_SECONDS });
 
   assert.equal(calls[1].url, "https://api.github.com/repos/OMNI-TOUS/.github/actions/workflows/org-sync.yml/dispatches");
   assert.equal(calls[1].options.method, "POST");
@@ -58,21 +58,29 @@ test("dispatchSync starts a real sync run on main", async () => {
   assert.deepEqual(calls[1].body, { ref: "main", inputs: { job: "sync", "dry-run": "false" } });
 });
 
-test("dispatchSync fails when GitHub rejects the token request", async () => {
+test("dispatchJob starts the job it is given", async () => {
+  const { fetch, calls } = fakeFetch([tokenResponse, dispatchResponse]);
+
+  await dispatchJob({ appId: APP_ID, installationId: INSTALLATION_ID, privateKey, fetch, nowSeconds: NOW_SECONDS, job: "weekly" });
+
+  assert.deepEqual(calls[1].body, { ref: "main", inputs: { job: "weekly", "dry-run": "false" } });
+});
+
+test("dispatchJob fails when GitHub rejects the token request", async () => {
   const { fetch, calls } = fakeFetch([{ ok: false, status: 401 }]);
 
   await assert.rejects(
-    dispatchSync({ appId: APP_ID, installationId: INSTALLATION_ID, privateKey, fetch, nowSeconds: NOW_SECONDS }),
+    dispatchJob({ appId: APP_ID, installationId: INSTALLATION_ID, privateKey, fetch, nowSeconds: NOW_SECONDS }),
     /401/,
   );
   assert.equal(calls.length, 1);
 });
 
-test("dispatchSync fails when GitHub rejects the dispatch", async () => {
+test("dispatchJob fails when GitHub rejects the dispatch", async () => {
   const { fetch } = fakeFetch([tokenResponse, { ok: false, status: 403 }]);
 
   await assert.rejects(
-    dispatchSync({ appId: APP_ID, installationId: INSTALLATION_ID, privateKey, fetch, nowSeconds: NOW_SECONDS }),
+    dispatchJob({ appId: APP_ID, installationId: INSTALLATION_ID, privateKey, fetch, nowSeconds: NOW_SECONDS }),
     /403/,
   );
 });
