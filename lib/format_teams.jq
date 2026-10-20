@@ -22,8 +22,8 @@ def table($widths; $header; $rows):
     columns: ($widths | map({width: .})),
     firstRowAsHeaders: true,
     showGridLines: false,
-    rows: [{type: "TableRow", cells: ($header | map(header_cell))}]
-      + ($rows | map({type: "TableRow", cells: map(cell)}))
+    rows: ([{type: "TableRow", cells: ($header | map(header_cell))}]
+      + ($rows | map({type: "TableRow", cells: map(cell)})))
   };
 
 def action_table:
