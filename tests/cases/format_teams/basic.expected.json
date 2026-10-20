@@ -44,15 +44,7 @@
                 "value": "3 (anterior: 4)"
               },
               {
-                "title": "Abertas há mais de 30 dias",
-                "value": "2 (anterior: 2)"
-              },
-              {
-                "title": "Abertas há mais de 90 dias",
-                "value": "1 (anterior: 1)"
-              },
-              {
-                "title": "Paradas (rótulo parado)",
+                "title": "Paradas (60+ dias sem atividade)",
                 "value": "1 (anterior: 0)"
               },
               {

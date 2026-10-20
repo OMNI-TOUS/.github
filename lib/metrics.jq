@@ -1,7 +1,5 @@
 include "common";
 
-def aging_days_30: 30;
-def aging_days_90: 90;
 def no_cliente: "(sem cliente)";
 
 def nearest_rank($p): .[((length * $p) | ceil) - 1];
@@ -30,8 +28,6 @@ def stats_by(f): group_by(f) | map({key: (.[0] | f), value: (map(.days) | lead_s
       by_cliente: ($lead | stats_by(.cliente))
     },
     open_issues: (.open_issues | length),
-    open_over_30d: ([.open_issues[] | select(age > aging_days_30)] | length),
-    open_over_90d: ([.open_issues[] | select(age > aging_days_90)] | length),
     stale: ([.open_issues[] | select(has_label($config.stale_label))] | length),
     done_but_open: ([.open_issues[] | select(board_field("status") == "Done")] | length),
     sla_breaches: ([.open_issues[]
