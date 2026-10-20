@@ -6,17 +6,15 @@ WORK="$(mktemp -d)"
 trap 'rm -rf "$WORK"' EXIT
 
 PRODUTO_OPTIONS_FILE="$ROOT/config/produto-por-repo.json"
-TAMANHO_OPTIONS='["P", "M", "G"]'
 CLIENTE_OPTIONS='["Prodesp"]'
 TEXT_FIELDS='["Card Jira"]'
-DATE_FIELDS='["Início", "Previsão"]'
+DATE_FIELDS='["Início"]'
 OPTION_COLOR="GRAY"
 
 desired_fields() {
-  jq -n --slurpfile produto "$PRODUTO_OPTIONS_FILE" --argjson tamanho "$TAMANHO_OPTIONS" --argjson cliente "$CLIENTE_OPTIONS" \
+  jq -n --slurpfile produto "$PRODUTO_OPTIONS_FILE" --argjson cliente "$CLIENTE_OPTIONS" \
     --argjson text "$TEXT_FIELDS" --argjson date "$DATE_FIELDS" '
     [{name: "Produto", dataType: "SINGLE_SELECT", options: ($produto[0] | [.[]] | unique)},
-     {name: "Tamanho", dataType: "SINGLE_SELECT", options: $tamanho},
      {name: "Cliente", dataType: "SINGLE_SELECT", options: $cliente}]
     + ($text | map({name: ., dataType: "TEXT"}))
     + ($date | map({name: ., dataType: "DATE"}))'
