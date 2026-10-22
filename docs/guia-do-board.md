@@ -7,9 +7,11 @@ Board: https://github.com/orgs/OMNI-TOUS/projects/1
 1. Abra a issue no repo do código, pelo formulário, e escolha a prioridade. Em poucos minutos ela aparece no board em Backlog, com Priority preenchida.
 2. No planejamento, revise a Priority e mova para Ready o que o time vai fazer. A visão Kanban mostra só o que saiu do Backlog.
 3. Mova para In progress quando começar.
-4. No PR, coloque `Closes OMNI-TOUS/<repo>#<número>`. O card vai para In review sozinho e para Done no merge.
+4. No PR, coloque `Closes OMNI-TOUS/<repo>#<número>`. O card vai para In review sozinho e para Homologação no merge.
+5. Quem pediu valida a entrega e move o card para Done em até 14 dias. Depois de 14 dias sem atualização, o board arquiva o card.
+6. Se a validação falhar, reabra a issue e comente o motivo. O card volta para In progress.
 
-Não precisa arrastar card para In review nem para Done.
+Não precisa arrastar card para In review nem para Homologação.
 
 ## PR sem card
 
