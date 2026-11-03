@@ -44,3 +44,8 @@ body:
     attributes:
       label: Cliente / órgão
       description: Deixe em branco se não for de um cliente específico.
+  - type: input
+    id: jira
+    attributes:
+      label: Card Jira
+      placeholder: "Ex.: TC-123"
