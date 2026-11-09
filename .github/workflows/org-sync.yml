@@ -31,9 +31,9 @@ jobs:
       group: org-sync
       cancel-in-progress: false
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: app
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v3
         with:
           app-id: ${{ vars.ORG_SYNC_APP_ID }}
           private-key: ${{ secrets.ORG_SYNC_APP_KEY }}
@@ -50,9 +50,9 @@ jobs:
       group: org-report
       cancel-in-progress: false
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: app
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v3
         with:
           app-id: ${{ vars.ORG_SYNC_APP_ID }}
           private-key: ${{ secrets.ORG_SYNC_APP_KEY }}
@@ -74,9 +74,9 @@ jobs:
       group: org-report
       cancel-in-progress: false
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: app
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v3
         with:
           app-id: ${{ vars.ORG_SYNC_APP_ID }}
           private-key: ${{ secrets.ORG_SYNC_APP_KEY }}
