@@ -27,7 +27,7 @@
     {"id": "PR_unlinked_new", "repo": "omni-sst", "number": 10, "sha": "s10", "labels": [], "linked": false, "card_link_state": null, "project_items": []},
     {"id": "PR_linked_on_board", "repo": "omni-core", "number": 11, "sha": "s11", "labels": [], "linked": true, "card_link_state": "SUCCESS", "project_items": [{"project": 1, "item_id": "PVTI_pr11"}]},
     {"id": "PR_skip_label", "repo": "omni-core", "number": 12, "sha": "s12", "labels": ["sem-card"], "linked": false, "card_link_state": "FAILURE", "project_items": []},
-    {"id": "PR_unlinked_known", "repo": "omni-core", "number": 13, "sha": "s13", "labels": [], "linked": false, "card_link_state": "FAILURE", "project_items": [{"project": 1, "item_id": "PVTI_pr13"}]},
+    {"id": "PR_unlinked_known", "repo": "omni-core", "number": 13, "sha": "s13", "labels": [], "linked": false, "card_link_state": "PENDING", "project_items": [{"project": 1, "item_id": "PVTI_pr13"}]},
     {"id": "PR_linked_new", "repo": "omni-core", "number": 14, "sha": "s14", "labels": [], "linked": true, "card_link_state": "FAILURE", "project_items": []}
   ]
 }

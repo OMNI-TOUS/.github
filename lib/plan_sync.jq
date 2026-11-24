@@ -39,7 +39,7 @@ def issue_actions($config):
 
 def pr_actions($config):
   ((.linked or has_label($config.skip_label)) as $ok
-   | (if $ok then "success" else "failure" end) as $state
+   | (if $ok then "success" else "pending" end) as $state
    | (if ($state | ascii_upcase) != .card_link_state
       then {type: "set_status", repo, sha, state: $state}
       else empty end),

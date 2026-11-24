@@ -17,7 +17,7 @@ Não precisa arrastar card para In review nem para Homologação.
 
 Bump de versão, ajuste de CI e afins: coloque o rótulo `sem-card`.
 
-PR sem `Closes` e sem `sem-card` fica com o check `card-link` vermelho e aparece no board até ser ligado a uma issue. O check não bloqueia o merge.
+PR sem `Closes` e sem `sem-card` fica com o check `card-link` amarelo (pendente) e aparece no board até ser ligado a uma issue. O check não bloqueia o merge.
 
 ## Rótulo `parado`
 
